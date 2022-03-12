@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "friendly-remindersWinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "friendly-remindersWinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
