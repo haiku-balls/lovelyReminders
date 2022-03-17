@@ -8,16 +8,16 @@
     mc:Ignorable="d">
     <Grid Background="#242424">
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar" Margin="0,-1,120,0">
+        <Grid x:Name="AppTitleBar" Margin="0,-1,0,0">
             <Image Source="Assets/Square44x44Logo.targetsize-256.png"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    Width="20" Height="20" 
                    Margin="8,9,0,0"/>
-            <TextBlock x:Name="AppTitleTextBlock" Text="Friendly Reminders"
+            <TextBlock x:Name="AppTitleTextBlock" Text="Lovely Reminders"
                        TextWrapping="NoWrap"
                        Style="{StaticResource CaptionTextBlockStyle}" 
                        VerticalAlignment="Top"
@@ -26,16 +26,19 @@
             <MenuBar VerticalAlignment="Top" Margin="5,30,10,10">
                 <MenuBarItem Title="Tools">
                     <MenuFlyoutItem x:Name="startButton" Text="Start" Click="startButton_Click"/>
-                    <MenuFlyoutItem Text="About" Click="aboutButton_Click"/>
                     <MenuFlyoutItem Text="Exit" Click="exitButton_Click"/>
                 </MenuBarItem>
             </MenuBar>
         </Grid>
-        <NavigationView Margin="0,0,0,0" Grid.Row="2" IsEnabled="False" IsBackButtonVisible="Collapsed" IsSettingsVisible="False" PaneDisplayMode="LeftCompact" >
+        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Home" Tag="home" Icon="Home" />
+            </NavigationView.MenuItems>
+
             <StackPanel>
-                <InfoBar VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Informational" Title="Note!" Message="To start use the menu. Tools > Start. Then go ahead and minimize the window. Don't worry I'll remind you. 💘" />
-                <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,600,10,10" Width="250" MaxWidth="250" />
+                <Frame x:Name="contentFrame" />
             </StackPanel>
+            
         </NavigationView>
     </Grid>
 </Window>

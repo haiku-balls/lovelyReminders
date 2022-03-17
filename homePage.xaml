@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="friendly_remindersWinUI.homePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:friendly_remindersWinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <InfoBar VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Warning" Title="Note!" Message="Once you configure your settings, you can no longer re-configure until you reluanch. This experience will be better soon™" />
+            <Image Source="/Assets/storeLogo.scale-400.png" Height="100" HorizontalAlignment="Center" Margin="-300,0,0,0" />
+            <TextBlock TextAlignment="Center" Margin="0,-90,0,0" FontSize="25" FontWeight="Bold">
+                    <Span><Italic>Lovely</Italic> Reminders</Span>
+            </TextBlock>
+            <TextBlock TextAlignment="Center" Margin="0,-55,0,0" FontSize="20" FontWeight="Bold">
+                    <Italic><Underline>Internal Build</Underline></Italic>
+            </TextBlock>
+            <TextBlock TextAlignment="Center" Margin="0,-25,0,0" FontSize="15" FontWeight="SemiBold">
+                    <Span>"weewoo"</Span>
+            </TextBlock>
+            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,500,10,10" Width="250" MaxWidth="250" />
+        </StackPanel>
+    </Grid>
+</Page>
