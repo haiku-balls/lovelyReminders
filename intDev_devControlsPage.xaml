@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="friendly_remindersWinUI.intDev_devControlsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:friendly_remindersWinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Tag="settingsView">
+            <InfoBar 
+                VerticalAlignment="Top" 
+                Width="Auto" 
+                Height="Auto" 
+                Margin="10,10,10,10" 
+                IsClosable="False" 
+                IsOpen="True" 
+                Severity="Warning" 
+                Title="Warning!" 
+                Message="These are intended for development use only! These are seriously experimental and may intentionally break things. You've been warned." />
+            <!-- Header -->
+            <TextBlock Margin="15,5,10,10" FontSize="25" FontWeight="Bold">
+                    <Span>Developer Controls</Span>
+            </TextBlock>
+            <!-- Sub-header -->
+            <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
+                    <Italic><Span FontSize="12">It's about to get buggy.</Span></Italic>
+            </TextBlock>
+            <!-- Toggle Title -->
+            <ToggleSwitch x:Name="intDev_element_forceTimeSwitch" Header="30s interval (Override Interval)" Margin="15,5,10,10" Toggled="intDev_element_forceTimeSwitch_Togged">
+                <ToolTipService.ToolTip>
+                    <!-- Toggle tooltip -->
+                    <TextBlock FontStyle="Italic">
+                        Overrides user interval.<LineBreak />Locking it to 30s for debugging purposes.
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+            </ToggleSwitch>
+            <!-- Toggle Title -->
+            <TextBox Header="Force Notification ID" PlaceholderText="Array ID" Width="200" MaxWidth="200" HorizontalAlignment="Left" Margin="15,0,10,10">
+                <ToolTipService.ToolTip>
+                    <!-- Textbox tooltip -->
+                    <TextBlock FontStyle="Italic">
+                        Forces a set ID.<LineBreak />Must match with the user's currently selected array.
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+            </TextBox>
+            <!-- Toggle Title -->
+            <ToggleSwitch Margin="15,5,10,10" x:Name="insModeToggle" Toggled="insModeToggle_Toggled">
+                <ToggleSwitch.Header>
+                    <TextBlock x:Name="insModeToggleText" Foreground="White">
+                        Insane Mode
+                    </TextBlock>
+                </ToggleSwitch.Header>
+                <ToolTipService.ToolTip>
+                    <!-- Toggle tooltip -->
+                    <TextBlock FontStyle="Italic">
+                            ...do you really want to know?
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+            </ToggleSwitch>
+            <!-- Secret page :o -->
+            <TextBox x:Name="intDev_element_hiddenPageTextBox" PlaceholderText="?" Width="150" MaxWidth="150" Margin="15,310,10,10" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextChanged="intDev_element_pageChanged" />
+            <Expander
+                Header="~ Developer Controls ~" 
+                IsEnabled="False" 
+                IsExpanded="False" 
+                ExpandDirection="Up" 
+                VerticalAlignment="Bottom" 
+                Margin="10,-75,10,10" 
+                Width="250"
+                MaxWidth="250" />
+        </StackPanel>   
+    </Grid>
+</Page>

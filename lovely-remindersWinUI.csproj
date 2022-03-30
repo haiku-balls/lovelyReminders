@@ -13,18 +13,35 @@
     <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
     <PackageCertificateKeyFile>friendly-remindersWinUI_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <AssemblyVersion>1.3.17.115</AssemblyVersion>
-    <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+    <AssemblyVersion>2.3.30.202</AssemblyVersion>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
-    <AppxBundle>Never</AppxBundle>
-    <AppInstallerUri>C:\Program Files\frWinUI</AppInstallerUri>
+    <AppxBundle>Always</AppxBundle>
+    <AppInstallerUri>D:\Projects\VS\fr-gitWinUI\test</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <StartupObject>friendly_remindersWinUI.Program</StartupObject>
+    <AppxPackageDir>D:\Projects\VS\fr-winUI\</AppxPackageDir>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ApplicationIcon>Assets\programIcon.ico</ApplicationIcon>
+    <BaseOutputPath>D:\Projects\VS\fr-winUI</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <FileVersion>1.3.30.6</FileVersion>
+    <PackageId />
+    <Description>Lovely Reminders</Description>
+    <PackageIcon>SmallTile.scale-400.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\BGM\itsTime.wav" />
+    <Content Remove="Assets\BGM\th.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="hiddenMsgPage.xaml" />
     <None Remove="homePage.xaml" />
+    <None Remove="intDev_devControlsPage.xaml" />
     <None Remove="settingsPage.xaml" />
   </ItemGroup>
 
@@ -39,8 +56,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.2" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.194" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22579-preview" />
+    <PackageReference Include="System.Windows.Extensions" Version="7.0.0-preview.2.22152.2" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -49,6 +67,31 @@
        package has not yet been restored -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\BGM\secPage.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\BGM\itsTime.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\BGM\th.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\SmallTile.scale-400.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <Page Update="hiddenMsgPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="intDev_devControlsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="settingsPage.xaml">

@@ -11,7 +11,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar" Margin="0,-1,0,0">
+        <Grid x:Name="AppTitleBar" Margin="0,0,0,0">
             <Image Source="Assets/Square44x44Logo.targetsize-256.png"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
@@ -30,15 +30,16 @@
                 </MenuBarItem>
             </MenuBar>
         </Grid>
-        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" KeyDown="mainWindow_KeyDown">
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Home" Tag="home" Icon="Home" />
             </NavigationView.MenuItems>
-
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem x:Name="intDevNavView" Content="Dev" Tag="dev" Icon="Repair" IsEnabled="False" />
+            </NavigationView.FooterMenuItems>
             <StackPanel>
                 <Frame x:Name="contentFrame" />
             </StackPanel>
-            
         </NavigationView>
     </Grid>
 </Window>

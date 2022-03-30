@@ -21,7 +21,7 @@
             <TextBlock TextAlignment="Center" Margin="0,-25,0,0" FontSize="15" FontWeight="SemiBold">
                     <Span>"weewoo"</Span>
             </TextBlock>
-            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,500,10,10" Width="250" MaxWidth="250" />
+            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,500,10,10" Width="325" MaxWidth="325" />
         </StackPanel>
     </Grid>
 </Page>

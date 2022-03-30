@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="friendly_remindersWinUI.hiddenMsgPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:friendly_remindersWinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <Expander
+                Header="~ A hidden page. ~" 
+                IsEnabled="False" 
+                IsExpanded="False" 
+                ExpandDirection="Up" 
+                VerticalAlignment="Bottom" 
+                Margin="10,-75,10,10" 
+                Width="250"
+                MaxWidth="250" />
+        </StackPanel>
+        <TextBlock Margin="10,10,10,10" FontSize="25" FontWeight="Bold">
+            This program...
+        </TextBlock>
+        <TextBlock Margin="10,55,10,10" FontSize="15" TextWrapping="Wrap">
+            This program is a memory. Something I planted forever. It reminds me of the human being that keeps me sane. 
+            This could be a present, a gift maybe. All that matters is this program will forever remind me of my favorite person in the world. Made for my baby cami. 
+            I love her so much and she'll forever have a special place in my heart. Thank you baby for everything you've done for me. 💘
+            <LineBreak />
+            <LineBreak />
+            - L
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            You may now exit the program.
+        </TextBlock>
+    </Grid>
+</Page>
