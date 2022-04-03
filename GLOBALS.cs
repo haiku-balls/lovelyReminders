@@ -2,7 +2,6 @@
 {
     public static class GLOBALS
     {
-        public static bool altMode { get; set; } // ! DEPRECATED !
         public static int remindMode { get; set; }
         public static int minRemind { get; set; }
         public static bool hornyMode { get; set; }
@@ -15,16 +14,25 @@
 
         // Secrets
         public static string intDev_page_hiddenMsgCode { get; set; }
-        public static bool intDev_feature_hiddenMsgPage { get; set; }
+        public static bool intDev_feature_hiddenMsgPage { get; set; }   
 
         // Program Variables
         public static string programBranch { get; set; }
-
+        
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
         //
         // Arrays
         public static string[] altReminderArr = new string[17]
         {
-            "i hope bby is alright <3", // 1
+                "i hope bby is alright <3", // 1
                 "mmwah <333333", // 2
                 "so much mwah mwahs for my baby <333", // 3
                 "mwah ily <3", // 4

@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid Background="#242424">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -30,7 +30,7 @@
                 </MenuBarItem>
             </MenuBar>
         </Grid>
-        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" KeyDown="mainWindow_KeyDown">
+        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsPaneOpen="False" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" KeyDown="mainWindow_KeyDown">
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Home" Tag="home" Icon="Home" />
             </NavigationView.MenuItems>

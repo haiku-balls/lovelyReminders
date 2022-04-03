@@ -16,9 +16,9 @@
             <!-- Sub-header -->
             <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
                     <Span>Reminder Interval</Span>
-                    <Italic>(Default: 5 minutes)</Italic>
+                    <Italic>(Default: 5 minutes; Maximum: 120 minutes)</Italic>
             </TextBlock>
-            <Slider x:Name="minSlider" Header="Minutes" ValueChanged="Slider_ValueChanged" IsEnabled="True" Value="5" TickFrequency="5" TickPlacement="Outside" Minimum="5" Maximum="60" StepFrequency="5" Margin="15,0,10,10" Width="300" HorizontalAlignment="Left" />
+            <Slider x:Name="minSlider" Header="Minutes" ValueChanged="Slider_ValueChanged" IsEnabled="True" Value="5" TickFrequency="10" TickPlacement="Outside" Minimum="5" Maximum="120" StepFrequency="5" Margin="15,0,10,10" Width="300" HorizontalAlignment="Left" />
             <ComboBox x:Name="modeSelect" SelectionChanged="modeSelect_SelectionChanged" Header="Reminder Mode" Margin="15,10,10,10">
                 <!-- 0 -->
                 <ComboBoxItem>Default</ComboBoxItem> 
@@ -31,18 +31,11 @@
             </ComboBox>
             <!-- Sub-header -->
             <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
-                🚧<Italic>Experimental (Under construction)</Italic>
-                    <Span FontSize="12"><LineBreak/>This is under construction as a rewrite is in-progress!</Span>
+                <Italic>Special Modes</Italic>
+                    <Span FontSize="12"><LineBreak/>Enabling these might disable certain settings.</Span>
             </TextBlock>
             <!-- Sub-header -->
-            <ToggleSwitch Header="Alternative Reminders" Margin="15,0,10,10" x:Name="altSwitch" Toggled="altSwitch_Toggled" IsEnabled="False">
-                <ToolTipService.ToolTip>
-                    <TextBlock FontStyle="Italic">
-                            Enables tips made for me instead of Cami. 🥰💘
-                    </TextBlock>
-                </ToolTipService.ToolTip>
-            </ToggleSwitch>
-            <ToggleSwitch Header="Horny Mode" Margin="15,0,10,10" x:Name="hornySwitch" Toggled="hornySwitch_Toggled" IsEnabled="False">
+            <ToggleSwitch Header="Horny Mode" Margin="15,0,10,10" x:Name="hornySwitch" Toggled="hornySwitch_Toggled">
                 <ToolTipService.ToolTip>
                     <TextBlock FontStyle="Italic">
                             May god help your soul.
@@ -56,14 +49,7 @@
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <ToggleSwitch Header="test B*" x:Name="testBSwitch" Margin="15,0,10,10">
-                <ToolTipService.ToolTip>
-                    <TextBlock FontStyle="Italic">
-                            testing testing 1-2-3. testing testing.
-                    </TextBlock>
-                </ToolTipService.ToolTip>
-            </ToggleSwitch>
-            <TextBlock Margin="15,0,10,10" FontSize="14">
+            <TextBlock Margin="15,150,10,10" FontSize="14">
                     <Italic>*Does nothing</Italic>
             </TextBlock>
             <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,0,10,10" Width="325" MaxWidth="325" />

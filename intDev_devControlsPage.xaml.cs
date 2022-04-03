@@ -13,15 +13,24 @@ namespace friendly_remindersWinUI
         {
             this.InitializeComponent();
             // Pre-check
-            if (GLOBALS.intDev_mode_insMode == true)
+            if (GLOBALS.intDev_feature_hiddenMsgPage)
+            {
+                intDev_element_hiddenPageTextBox.IsEnabled = false;
+            }
+            if (GLOBALS.intDev_mode_insMode)
             {
                 insModeToggle.IsOn = true;
                 insModeToggleText.Foreground = new SolidColorBrush(Colors.Red);
             }
             else
             {
-                GLOBALS.intDev_mode_insMode = false;
+                GLOBALS.intDev_mode_insMode = false; // override just in case.
             }
+            if (GLOBALS.intDev_feature_debugForceTime)
+            {
+                intDev_element_forceTimeSwitch.IsOn = true;
+            }
+            
         }
 
         private void insModeToggle_Toggled(object sender, RoutedEventArgs e)
