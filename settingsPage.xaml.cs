@@ -1,38 +1,74 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using friendly_remindersWinUI;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace friendly_remindersWinUI
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class settingsPage : Page
     {
         public settingsPage()
         {
             this.InitializeComponent();
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            versionExpander.Header = "Version " + version + "-alpha"; // -> "1.1.2.10"
-            // Set disabled by default.
-            GLOBALS.altMode = false;
+            versionExpander.Header = "Version " + version; // -> "1.1.2.10"
+                                                                      // Major doesn't change unless rewrite or V2. Minor is the month. Build is the Day. Rev. is the revision number (auto. changes)
+            // Mode check.
+            if (GLOBALS.remindMode == 0) { modeSelect.SelectedIndex = 0; }
+            else if (GLOBALS.remindMode == 1) { modeSelect.SelectedIndex = 1; }
+            else if (GLOBALS.remindMode == 2) { modeSelect.SelectedIndex = 2; }
+
+            // Developer toggles check.
+            if (GLOBALS.intDev_mode_insMode)
+            {
+                hornySwitch.IsEnabled = false;
+                sleepSwitch.IsEnabled = false;
+                minSlider.IsEnabled = false;
+                modeSelect.IsEnabled = false;
+                modeSelect.SelectedIndex = 3;
+                settingsInfoBar.Severity = InfoBarSeverity.Error;
+                settingsInfoBar.Message = "You have a developer flag enabled that isn't compatible with some of these settings. You must disable the flag to enable these settings again.";
+            }
+            else if (GLOBALS.intDev_feature_debugForceTime)
+            {
+                sleepSwitch.IsEnabled = false;
+                minSlider.IsEnabled = false;
+                settingsInfoBar.Severity = InfoBarSeverity.Error;
+                settingsInfoBar.Message = "You have a developer flag enabled that isn't compatible with some of these settings. You must disable the flag to enable these settings again.";
+            }
         }
-        private void altSwitch_Toggled(object sender, RoutedEventArgs e)
+
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            GLOBALS.minRemind = (int)e.NewValue;
+        }
+
+        private void hornySwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    // override some things (this mode cannot be used with alternative or ral modes)
+                    modeSelect.IsEnabled = false;
+                    modeSelect.SelectedIndex = 0;
+                    GLOBALS.remindMode = 0;
+                    
+                    // disable the othr stuff.
+                    sleepSwitch.IsEnabled = false;
+                    GLOBALS.hornyMode = true;
+                }
+                if (toggleSwitch.IsOn == false)
+                {
+                    // disable stuff.
+                    modeSelect.IsEnabled = true;
+                    sleepSwitch.IsEnabled = true;
+                    GLOBALS.hornyMode = false;
+                }
+            }
+        }
+
+        private void sleepSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
@@ -40,19 +76,26 @@ namespace friendly_remindersWinUI
                 if (toggleSwitch.IsOn == true)
                 {
                     hornySwitch.IsEnabled = false;
-                    GLOBALS.altMode = true;
+                    GLOBALS.sleepMode = true;
                 }
                 if (toggleSwitch.IsOn == false)
                 {
                     hornySwitch.IsEnabled = true;
-                    GLOBALS.altMode = false;
+                    GLOBALS.sleepMode = false;
                 }
             }
         }
 
-        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void modeSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GLOBALS.minRemind = (int)e.NewValue;
+            // Mode IDs:
+            // 0: Default
+            // 1: Alternative (Myself)
+            // 2: ral (wip)
+            if (modeSelect.SelectedIndex == GLOBALS.remindMode) { } // debounce
+            else if (modeSelect.SelectedIndex == 0) { GLOBALS.remindMode = 0; }
+            else if (modeSelect.SelectedIndex == 1) { GLOBALS.remindMode = 1; }
+            else if (modeSelect.SelectedIndex == 2) { GLOBALS.remindMode = 2; }
         }
     }
 }

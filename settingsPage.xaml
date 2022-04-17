@@ -2,63 +2,53 @@
     x:Class="friendly_remindersWinUI.settingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:friendly_remindersWinUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
-        <StackPanel Tag="settingsView">
-            <InfoBar VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Informational" Title="Note!" Message="To start use the menu. Tools > Start. Then go ahead and minimize the window. Don't worry I'll remind you. 💘" />
+        <InfoBar x:Name="settingsInfoBar" VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Informational" Title="Note!" Message="To start use the menu. Tools > Start. Then go ahead and minimize the window. Don't worry I'll remind you. 💘" />
+        <StackPanel Margin="0,65,0,0">
             <TextBlock Margin="15,5,10,10" FontSize="25" FontWeight="Bold">
                     <Span>Configuration</Span>
             </TextBlock>
             <!-- Sub-header -->
             <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
                     <Span>Reminder Interval</Span>
-                    <Italic>(Default: 5 minutes)</Italic>
+                    <Italic>(Default: 5 minutes; Maximum: 120 minutes)</Italic>
+            </TextBlock>
+            <Slider x:Name="minSlider" Header="Minutes" ValueChanged="Slider_ValueChanged" IsEnabled="True" Value="5" TickFrequency="10" TickPlacement="Outside" Minimum="5" Maximum="120" StepFrequency="5" Margin="15,0,10,10" Width="300" HorizontalAlignment="Left" />
+            <ComboBox x:Name="modeSelect" SelectionChanged="modeSelect_SelectionChanged" Header="Reminder Mode" Margin="15,10,10,10">
+                <!-- 0 -->
+                <ComboBoxItem>Default</ComboBoxItem>
+                <!-- 1 -->
+                <ComboBoxItem>Alternate</ComboBoxItem>
+                <!-- 2 -->
+                <ComboBoxItem>ral</ComboBoxItem>
+                <!-- D -->
+                <ComboBoxItem IsEnabled="False">Insane Mode</ComboBoxItem>
+            </ComboBox>
+            <!-- Sub-header -->
+            <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
+                <Italic>Special Modes</Italic>
+                    <Span FontSize="12"><LineBreak/>Enabling these might disable certain settings.</Span>
             </TextBlock>
             <!-- Sub-header -->
-            <Slider Header="Minutes" ValueChanged="Slider_ValueChanged" IsEnabled="True" AutomationProperties.Name="minSlider" Value="5" TickFrequency="5" TickPlacement="Outside" Minimum="5" Maximum="60" StepFrequency="5" Margin="15,0,10,10" Width="300" HorizontalAlignment="Left" />
-            <!-- Sub-header -->
-            <TextBlock Margin="15,85,10,10" FontSize="15" FontWeight="SemiBold">
-                    <Italic>Experimental</Italic>
-                    <Span FontSize="12"><LineBreak/>You can hover over the toggles for more info.</Span>
-            </TextBlock>
-            <!-- Sub-header -->
-            <ToggleSwitch Header="Alternative Reminders" Margin="15,0,10,10" x:Name="altSwitch" Toggled="altSwitch_Toggled">
+            <ToggleSwitch Header="Horny Mode" Margin="15,0,10,10" x:Name="hornySwitch" Toggled="hornySwitch_Toggled">
                 <ToolTipService.ToolTip>
                     <TextBlock FontStyle="Italic">
-                            Enables tips made for me instead of Cami. 🥰💘
+                            May god help your soul.
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <ToggleSwitch Header="Horny Mode" Margin="15,0,10,10" x:Name="hornySwitch">
+            <ToggleSwitch Header="Sleepy Mode" Margin="15,0,10,10" x:Name="sleepSwitch" Toggled="sleepSwitch_Toggled">
                 <ToolTipService.ToolTip>
                     <TextBlock FontStyle="Italic">
-                            huh?
+                            Enable it to find out. :)
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <ToggleSwitch Header="test A*" Margin="15,0,10,10" AutomationProperties.Name="altSwitch">
-                <ToolTipService.ToolTip>
-                    <TextBlock FontStyle="Italic">
-                            testing testing 1-2-3. testing testing.
-                    </TextBlock>
-                </ToolTipService.ToolTip>
-            </ToggleSwitch>
-            <ToggleSwitch Header="test B*" Margin="15,0,10,10" AutomationProperties.Name="altSwitch">
-                <ToolTipService.ToolTip>
-                    <TextBlock FontStyle="Italic">
-                            testing testing 1-2-3. testing testing.
-                    </TextBlock>
-                </ToolTipService.ToolTip>
-            </ToggleSwitch>
-            <TextBlock Margin="15,0,10,10" FontSize="14">
-                    * Does nothing
-            </TextBlock>
-            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,0,10,10" Width="250" MaxWidth="250" />
         </StackPanel>
+            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,0,10,10" Width="325" MaxWidth="325" />
     </Grid>
 </Page>

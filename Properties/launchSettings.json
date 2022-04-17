@@ -1,7 +1,8 @@
 {
   "profiles": {
     "friendly-remindersWinUI (Package)": {
-      "commandName": "MsixPackage"
+      "commandName": "MsixPackage",
+      "allowLocalNetworkLoopbackProperty": false
     },
     "friendly-remindersWinUI (Unpackaged)": {
       "commandName": "Project"

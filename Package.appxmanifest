@@ -9,7 +9,7 @@
   <Identity
     Name="1490028a-87ff-44a6-81d1-2d4bad82b3d8"
     Publisher="CN=Baka"
-    Version="1.0.0.0" />
+    Version="2.4.3.0" />
 
   <Properties>
     <DisplayName>friendly-remindersWinUI</DisplayName>
