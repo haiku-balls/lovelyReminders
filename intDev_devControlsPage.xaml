@@ -9,8 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Tag="settingsView">
-            <InfoBar 
+        <InfoBar 
                 VerticalAlignment="Top" 
                 Width="Auto" 
                 Height="Auto" 
@@ -20,12 +19,13 @@
                 Severity="Warning" 
                 Title="Warning!" 
                 Message="These are intended for development use only! These are seriously experimental and may intentionally break things. You've been warned." />
+        <StackPanel Margin="0,65,0,0">
             <!-- Header -->
-            <TextBlock Margin="15,5,10,10" FontSize="25" FontWeight="Bold">
+            <TextBlock Margin="15,0,10,10" FontSize="25" FontWeight="Bold">
                     <Span>Developer Controls</Span>
             </TextBlock>
             <!-- Sub-header -->
-            <TextBlock Margin="15,0,10,10" FontSize="15" FontWeight="SemiBold">
+            <TextBlock Margin="15,-8,10,10" FontSize="15" FontWeight="SemiBold">
                     <Italic><Span FontSize="12">It's about to get buggy.</Span></Italic>
             </TextBlock>
             <!-- Toggle Title -->
@@ -38,7 +38,7 @@
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
             <!-- Toggle Title -->
-            <TextBox Header="Force Notification ID" PlaceholderText="Array ID" Width="200" MaxWidth="200" HorizontalAlignment="Left" Margin="15,0,10,10">
+            <TextBox Header="Force Notification ID" PlaceholderText="Array ID" Width="200" MaxWidth="200" Height="60" MaxHeight="60" HorizontalAlignment="Left" Margin="15,0,10,10">
                 <ToolTipService.ToolTip>
                     <!-- Textbox tooltip -->
                     <TextBlock FontStyle="Italic">
@@ -60,9 +60,10 @@
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <!-- Secret page :o -->
+        </StackPanel>
+        <!-- Secret page :o -->
             <TextBox x:Name="intDev_element_hiddenPageTextBox" PlaceholderText="?" Width="150" MaxWidth="150" Margin="15,310,10,10" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextChanged="intDev_element_pageChanged" />
-            <Expander
+        <Expander
                 Header="~ Developer Controls ~" 
                 IsEnabled="False" 
                 IsExpanded="False" 
@@ -71,6 +72,5 @@
                 Margin="10,-75,10,10" 
                 Width="250"
                 MaxWidth="250" />
-        </StackPanel>   
     </Grid>
 </Page>

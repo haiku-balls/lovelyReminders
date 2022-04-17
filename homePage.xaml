@@ -9,19 +9,66 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            <InfoBar VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Warning" Title="Note!" Message="Once you configure your settings, you can no longer re-configure until you reluanch. This experience will be better soon™" />
-            <Image Source="/Assets/storeLogo.scale-400.png" Height="100" HorizontalAlignment="Center" Margin="-300,0,0,0" />
-            <TextBlock TextAlignment="Center" Margin="0,-90,0,0" FontSize="25" FontWeight="Bold">
-                    <Span><Italic>Lovely</Italic> Reminders</Span>
+        <InfoBar VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Warning" Title="Note!" Message="Once you configure your settings, you can no longer re-configure until you reluanch. This experience will be better soon™" />
+        <StackPanel HorizontalAlignment="Center" Width="400" Height="Auto" Margin="10,55,0,0">
+            <Image Source="/Assets/storeLogo.scale-400.png" Height="100" Margin="0,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <TextBlock VerticalAlignment="Top" TextAlignment="Center" Margin="0,-90,0,0" FontSize="25" FontWeight="Bold">
+            <Span>
+                <Italic>Lovely</Italic> Reminders
+            </Span>
             </TextBlock>
-            <TextBlock TextAlignment="Center" Margin="0,-55,0,0" FontSize="20" FontWeight="Bold">
-                    <Italic><Underline>Internal Build</Underline></Italic>
+            <TextBlock TextAlignment="Center" Margin="0,-60,0,0" FontSize="20" FontWeight="Bold">
+                    <Italic><Underline>Preview Build</Underline></Italic>
             </TextBlock>
-            <TextBlock TextAlignment="Center" Margin="0,-25,0,0" FontSize="15" FontWeight="SemiBold">
-                    <Span>"weewoo"</Span>
+            <TextBlock TextAlignment="Center" Margin="0,-30,0,0" FontSize="15" FontWeight="SemiBold">
+                    <Span>"wow lovelies :o"</Span>
             </TextBlock>
-            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,495,10,10" Width="325" MaxWidth="325" />
         </StackPanel>
+        <Expander
+            HorizontalContentAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,170,10,10"
+            Width="1450"
+            Height="Auto"
+            IsExpanded="True"
+            IsEnabled="False"
+            Header="Release Notes">
+            <Expander.Content>
+                <ScrollViewer MaxHeight="1000">
+                    <Grid>
+                        <TextBlock FontSize="25" FontWeight="Bold">Changes</TextBlock>
+                        <TextBlock Margin="0,35,0,0">Version 2.4.3-[tbd]</TextBlock>
+                        <TextBlock Margin="0,60,0,0">
+                            - <Bold>New Modes:</Bold>
+                            <LineBreak />
+                            <Italic>
+                                - Alternative Reminders
+                                <LineBreak/>
+                                - Ral's Reminders
+                                <LineBreak/>
+                                - Horny Mode
+                                <LineBreak/>
+                                - Sleep Mode :)
+                                <LineBreak/>
+                                - Insane Mode
+                            </Italic>
+                        </TextBlock>
+                        <TextBlock FontSize="25" FontWeight="Bold" Margin="0,175,0,0">Fixes / Issues</TextBlock>
+                        <TextBlock Margin="0,215,0,0">
+                            <Italic>
+                                - <Underline>Fixed</Underline> the UI scaling issue.
+                                <LineBreak/>
+                                - <Underline>Fixed</Underline> the app randomly nil'ing variables (specifically the minutes set to remind)
+                                <LineBreak/>
+                                - <Underline>Fixed</Underline> the color scheme.
+                                <LineBreak/>
+                                - <Underline>Pressing the tab key and then D will will will do an action. !!!!11111f</Underline>
+                            </Italic>
+                        </TextBlock>
+                    </Grid>
+                </ScrollViewer>
+            </Expander.Content>
+        </Expander>
+        <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,10,10,10" Width="325" MaxWidth="325" />
     </Grid>
 </Page>

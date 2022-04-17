@@ -2,14 +2,13 @@
     x:Class="friendly_remindersWinUI.settingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:friendly_remindersWinUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <StackPanel Tag="settingsView">
-            <InfoBar x:Name="settingsInfoBar" VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Informational" Title="Note!" Message="To start use the menu. Tools > Start. Then go ahead and minimize the window. Don't worry I'll remind you. 💘" />
+        <InfoBar x:Name="settingsInfoBar" VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="10,10,10,10" IsClosable="False" IsOpen="True" Severity="Informational" Title="Note!" Message="To start use the menu. Tools > Start. Then go ahead and minimize the window. Don't worry I'll remind you. 💘" />
+        <StackPanel Margin="0,65,0,0">
             <TextBlock Margin="15,5,10,10" FontSize="25" FontWeight="Bold">
                     <Span>Configuration</Span>
             </TextBlock>
@@ -21,11 +20,11 @@
             <Slider x:Name="minSlider" Header="Minutes" ValueChanged="Slider_ValueChanged" IsEnabled="True" Value="5" TickFrequency="10" TickPlacement="Outside" Minimum="5" Maximum="120" StepFrequency="5" Margin="15,0,10,10" Width="300" HorizontalAlignment="Left" />
             <ComboBox x:Name="modeSelect" SelectionChanged="modeSelect_SelectionChanged" Header="Reminder Mode" Margin="15,10,10,10">
                 <!-- 0 -->
-                <ComboBoxItem>Default</ComboBoxItem> 
+                <ComboBoxItem>Default</ComboBoxItem>
                 <!-- 1 -->
                 <ComboBoxItem>Alternate</ComboBoxItem>
                 <!-- 2 -->
-                <ComboBoxItem>ral (wip)</ComboBoxItem>
+                <ComboBoxItem>ral</ComboBoxItem>
                 <!-- D -->
                 <ComboBoxItem IsEnabled="False">Insane Mode</ComboBoxItem>
             </ComboBox>
@@ -42,17 +41,14 @@
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <ToggleSwitch Header="Sleepy Mode" Margin="15,0,10,10" x:Name="sleepSwitch" Toggled="sleepSwitch_Toggled" IsEnabled="False">
+            <ToggleSwitch Header="Sleepy Mode" Margin="15,0,10,10" x:Name="sleepSwitch" Toggled="sleepSwitch_Toggled">
                 <ToolTipService.ToolTip>
                     <TextBlock FontStyle="Italic">
                             Enable it to find out. :)
                     </TextBlock>
                 </ToolTipService.ToolTip>
             </ToggleSwitch>
-            <TextBlock Margin="15,150,10,10" FontSize="14">
-                    <Italic>*Does nothing</Italic>
-            </TextBlock>
-            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,0,10,10" Width="325" MaxWidth="325" />
         </StackPanel>
+            <Expander x:Name="versionExpander" IsEnabled="False" IsExpanded="False" ExpandDirection="Up" VerticalAlignment="Bottom" Header="Version [n/a]" Margin="10,0,10,10" Width="325" MaxWidth="325" />
     </Grid>
 </Page>

@@ -10,7 +10,7 @@ namespace friendly_remindersWinUI
         {
             this.InitializeComponent();
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            versionExpander.Header = "Version " + version + GLOBALS.programBranch; // -> "1.1.2.10"
+            versionExpander.Header = "Version " + version; // -> "1.1.2.10"
                                                                       // Major doesn't change unless rewrite or V2. Minor is the month. Build is the Day. Rev. is the revision number (auto. changes)
             // Mode check.
             if (GLOBALS.remindMode == 0) { modeSelect.SelectedIndex = 0; }
@@ -34,25 +34,6 @@ namespace friendly_remindersWinUI
                 minSlider.IsEnabled = false;
                 settingsInfoBar.Severity = InfoBarSeverity.Error;
                 settingsInfoBar.Message = "You have a developer flag enabled that isn't compatible with some of these settings. You must disable the flag to enable these settings again.";
-            }
-        }
-        private void altSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    hornySwitch.IsEnabled = false;
-                    sleepSwitch.IsEnabled = false;
-                    GLOBALS.altMode = true;
-                }
-                if (toggleSwitch.IsOn == false)
-                {
-                    hornySwitch.IsEnabled = true;
-                    sleepSwitch.IsEnabled = true;
-                    GLOBALS.altMode = false;
-                }
             }
         }
 

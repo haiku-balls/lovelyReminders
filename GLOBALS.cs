@@ -18,7 +18,7 @@
 
         // Program Variables
         public static string programBranch { get; set; }
-        
+
         //
         //
         //
@@ -30,6 +30,21 @@
         //
         //
         // Arrays
+
+        public static string[] ralReminderArr = new string[10]
+        {
+            "i lov u <3", // 1
+            "i love you dumdum <3", // 2
+            "i love you <3", // 3
+            ":3", // 4
+            "<3", // 5
+            "dumdum <3", // 6
+            "i love you dummy <3", // 7
+            "i love you lovely <3", // 8
+            "lovely is cute <33", // 9
+            "dumdum cutie <3", // 10
+        };
+
         public static string[] altReminderArr = new string[17]
         {
                 "i hope bby is alright <3", // 1

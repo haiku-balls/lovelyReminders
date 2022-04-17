@@ -6,40 +6,44 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid>
+    <Grid Background="#1a1a1a">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar" Margin="0,0,0,0">
+        <!-- Title bar -->
+        <Grid x:Name="AppTitleBar">
             <Image Source="Assets/Square44x44Logo.targetsize-256.png"
                    HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Width="20" Height="20" 
-                   Margin="8,9,0,0"/>
-            <TextBlock x:Name="AppTitleTextBlock" Text="Lovely Reminders"
+                   Width="24" Height="24"
+                   Margin="5,0"/>
+            <TextBlock x:Name="AppTitleBarTextBlock"
                        TextWrapping="NoWrap"
-                       Style="{StaticResource CaptionTextBlockStyle}" 
-                       VerticalAlignment="Top"
-                       Height="Auto"
-                       Margin="32,10,10,10"/>
-            <MenuBar VerticalAlignment="Top" Margin="5,30,10,10">
-                <MenuBarItem Title="Tools">
-                    <MenuFlyoutItem x:Name="startButton" Text="Start" Click="startButton_Click"/>
-                    <MenuFlyoutItem Text="Exit" Click="exitButton_Click"/>
-                </MenuBarItem>
-            </MenuBar>
+                       Style="{StaticResource CaptionTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       Margin="30,-2,0,0">
+                <Span>
+                    Lovely Reminders <Bold>PREVIEW</Bold>
+                </Span>
+            </TextBlock>
         </Grid>
-        <NavigationView x:Name="NavView" Grid.Row="1" Height="725" PaneDisplayMode="Auto" IsPaneOpen="False" IsBackEnabled="False" IsBackButtonVisible="Collapsed" IsTabStop="False" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" KeyDown="mainWindow_KeyDown">
+        <NavigationView x:Name="NavView" 
+                        Loaded="NavigationView_Loaded" 
+                        SelectionChanged="NavigationView_SelectionChanged" 
+                        KeyDown="mainWindow_KeyDown"
+                        Grid.Row="1"
+                        IsBackButtonVisible="Collapsed"
+                        IsSettingsVisible="True">
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Home" Tag="home" Icon="Home" />
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem x:Name="intDevNavView" Content="Dev" Tag="dev" Icon="Repair" IsEnabled="False" />
             </NavigationView.FooterMenuItems>
-            <StackPanel>
-                <Frame x:Name="contentFrame" />
-            </StackPanel>
+            <Grid Background="#262626">
+                <Frame x:Name="contentFrame" Width="Auto" Height="Auto" Margin="0,40,0,0"/>
+                <Button x:Name="startButton" Click="startButton_Click" VerticalAlignment="Top" Margin="10,4,5,5">Start</Button>
+            </Grid>
         </NavigationView>
     </Grid>
 </Window>
